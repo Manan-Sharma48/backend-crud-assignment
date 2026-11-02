@@ -1,0 +1,60 @@
+### Environment Variable
+@baseUrl = http://localhost:8000/api/v1
+@postId = PASTE_POST_ID_FROM_CREATE_RESPONSE_HERE
+
+### USER AUTHENTICATION ENDPOINTS
+
+### 1. Register a New User
+POST {{baseUrl}}/users/register
+Content-Type: application/json
+
+{
+  "username": "Manan",
+  "email": "manan.test@example.com",
+  "password": "TestPass123!"
+}
+
+### 2. Login User
+POST {{baseUrl}}/users/login
+Content-Type: application/json
+
+{
+  "email": "manan.test@example.com",
+  "password": "TestPass123!"
+}
+
+### 3. Logout User
+POST {{baseUrl}}/users/logout
+Content-Type: application/json
+
+{
+  "email": "manan.test@example.com"
+}
+
+### POST CRUD ENDPOINTS
+
+### 4. Create a Post
+POST {{baseUrl}}/posts/create
+Content-Type: application/json
+
+{
+  "name": "Manan",
+  "description": "My first backend project post",
+  "age": 19
+}
+
+### 5. Get All Posts
+GET {{baseUrl}}/posts/getPosts
+
+### 6. Update a Post
+### Replace @postId above with the _id returned by Create Post or Get All Posts.
+PATCH {{baseUrl}}/posts/update/{{postId}}
+Content-Type: application/json
+
+{
+  "description": "Updated my backend assignment",
+  "age": 19
+}
+
+### 7. Delete a Post
+DELETE {{baseUrl}}/posts/delete/{{postId}}
